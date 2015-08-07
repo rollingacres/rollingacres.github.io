@@ -379,19 +379,27 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      bower: {
+        expand: true,
+        cwd: '',
+        src: 'bower_components/**/*',
+        dest: '<%= yeoman.app %>/'
       }
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'copy:styles',
+        'copy:bower'
       ],
       test: [
         'copy:styles'
       ],
       dist: [
         'copy:styles',
+        'copy:bower',
         'imagemin',
         'svgmin'
       ]
@@ -446,6 +454,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'copy:bower',
     'cdnify',
     'cssmin',
     'uglify',
