@@ -37,15 +37,15 @@
             <a class="navbar-brand" href="#/">Rolling Acres</a>
           </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+          <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavigationCtrl">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/services">Services</a></li>
-              <li><a ng-href="#/application">Application</a></li>
-              <li><a ng-href="#/questions">Questions</a></li>
-              <li><a ng-href="#/links">Links</a></li>
-              <li><a ng-href="#/contact">Contact</a></li>
+              <li ng-class="{ active: isActive('/') }"><a href="#/">Home</a></li>
+              <li ng-class="{ active: isActive('/services') }"><a ng-href="#/services">Services</a></li>
+              <li ng-class="{ active: isActive('/application') }"><a ng-href="#/application">Application</a></li>
+              <li ng-class="{ active: isActive('/questions') }"><a ng-href="#/questions">Questions</a></li>
+              <li ng-class="{ active: isActive('/links') }"><a ng-href="#/links">Links</a></li>
+              <li ng-class="{ active: isActive('/contact') }"><a ng-href="#/contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -58,6 +58,9 @@
 
     <div class="footer">
       <div class="container">
+        8420 Kilby Rd<br>
+        Harrison, OH  45030<br>
+        <a href="tel:513-367-9824">513-367-9824</a>
         <p><span class="glyphicon glyphicon-copyright-mark"></span> Rolling Acres Estates</p>
       </div>
     </div>
@@ -100,6 +103,7 @@
         <script src="scripts/controllers/links.js"></script>
         <script src="scripts/controllers/questions.js"></script>
         <script src="scripts/controllers/directions.js"></script>
+        <script src="scripts/controllers/navigation.js"></script>
         <!-- endbuild -->
 </body>
 </html>
